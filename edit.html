@@ -1,0 +1,2514 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>
+            Bookmarks | Edit
+        </title>
+    </head>
+    <style>
+
+                .navbar {
+            background-color: #008b8b;
+            border: 1px solid #008b8b;
+        }
+
+        .navbar .nav > li > a {
+            color:  #eead0e;
+            font-weight: bold;
+        }
+
+        .navbar-header > a.navbar-brand {
+            color: #eead0e;
+            font-weight: bold;
+        }
+
+        .navbar .nav > li > a:hover {
+            color:  #ffffff;
+            background-color: #eead0e;
+        }
+
+        .navbar-header > a.navbar-brand:hover {
+            color: #eead0e;
+        }
+
+        .nav .active a{
+            background-color: #eead0e!important;
+        }
+        
+        .btn{
+            background: transparent;
+            color: #F2F2F2;
+            font-size: 1.2em;
+            color: #000;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .btn:hover{
+            background: #eead0e;
+            color: #000000;
+        }
+
+        .login{
+            background-color: #008b8b;
+        }
+
+        .signup{
+            background-color:#008b8b;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: rgba(238,173,14, 0.1);
+        }
+
+        .progress {
+            border-radius: 0%;
+        }
+
+        .progress_style_home {
+            width: 100%;
+            font-size: 1em;
+        }
+
+        .bm_style {
+            text-align: center;
+        }
+
+        .bm_style:hover {
+            background-color: #8b8386;
+            color: #ffffff;
+        }
+
+        .category-container:hover{
+            background-color: rgba(139,131,134, 0.15);
+        }
+
+        .input-append .btn.dropdown-toggle {
+            float: none;
+        }
+        
+        .box {
+            border: 1px solid black;
+        }
+        
+        .progress_style_edit{
+             width: 100%;
+             font-size: 1em;
+             text-align: left;
+        }
+
+        .bm_style_glyphicon {
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+        }
+
+        .bm_style_glyphicon:hover {
+            color: #000000;
+        }
+
+        .cat_glyph_style {
+            color: #ffffff;
+            font-size: 0.9em;
+        }
+
+        .cat_glyph_style:hover {
+            color: #000000;
+        }
+        .bm_style {
+            text-align: left;
+        }
+
+        .btn_small {
+            height: 30px;
+            padding-top: 1.5px;
+            margin-top: 1px;
+        }
+
+    </style>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="border-radius:0px;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Bookmarks</a>
+                </div>
+                <div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home: new_user</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Add ten bookmarks</a></li>
+                            <li><a href="#">Add five categories</a></li>
+                            <li class="active"><a href="#">Edit</a></li>
+                            <li><a href="trash.html">Trash</a></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        </br></br></br>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li><a href="#" class="bm_collapser"> Collapse All </a></li>
+        <li><a href="#" class="bm_expander"> Expand All </a></li>
+        <li><a href="#" class="night_mode"> Night Mode </a></li>
+        <li><a href="#" class="bright_mode"> Bright Mode </a></li>
+    </ul>
+</div>
+
+        <div class="container category_big_edit_form login" style="border: 1px solid grey;">
+    <div style="text-align: right;">
+        <span class="glyphicon glyphicon-remove bm_style_glyphicon hide_big_edit_form"></span>
+    </div>
+    <form class="form-horizontal" action="/b/edit_category/" method="post">
+    <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+        <div class="form-group hidden_field">
+            <label class="control-label col-sm-2">ID:</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="ID"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Category Name:</label>
+             <div class="col-sm-3">
+                <input type="text" class="form-control" name="category_name" placeholder="Category Name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Color:</label>
+            <div class="col-sm-3"> 
+                <input type="text" class="form-control" name="color" placeholder="Enter color">
+            </div>
+            <div class="input-append btn-group">
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" style="max-height: 150px; overflow: hidden; overflow-y: auto;">
+                    
+                        <li class="dropdown_color"><a>red</a></li>
+                    
+                        <li class="dropdown_color"><a>blue</a></li>
+                    
+                        <li class="dropdown_color"><a>white</a></li>
+                    
+                        <li class="dropdown_color"><a>green</a></li>
+                    
+                        <li class="dropdown_color"><a>black</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Row Number:</label>
+                <div class="col-sm-3">
+                 <input type="number" class="form-control" name="row_number">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Column Number:</label>
+                <div class="col-sm-3"> 
+                 <input type="number" class="form-control" name="column_number">
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <div class="col-sm-offset-2 col-sm-3">
+                  <button type="submit" class="btn">Done</button>
+            </div>
+            </div>
+    </form>
+</div>
+
+        <div class="container bookmark_big_edit_form login" style="border: 1px solid grey;">
+
+    <div style="text-align: right;">
+        <span class="glyphicon glyphicon-remove bm_style_glyphicon hide_big_edit_form"></span>
+    </div>
+
+    <form class="form-horizontal" action="/b/edit_bookmark/" method="post">
+    <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+        <div class="form-group hidden_field">
+            <label class="control-label col-sm-2">ID:</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="ID"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Bookmark Name:</label>
+             <div class="col-sm-3">
+                <input type="text" class="form-control" name="bookmark_name" placeholder="Enter Bookmark Name" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Link:</label>
+            <div class="col-sm-3"> 
+                <input type="text" class="form-control" name="link" placeholder="Enter link" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Category:</label>
+            <div class="col-sm-3"> 
+                <input type="text" class="form-control" name="category" placeholder="Enter category" />
+            </div>
+
+            <div class="input-append btn-group">
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" style="max-height: 150px; overflow: hidden; overflow-y: auto;">
+                    
+                        <li class="dropdown_category"><a>Social</a></li>
+                    
+                        <li class="dropdown_category"><a>News</a></li>
+                    
+                        <li class="dropdown_category"><a>E-commerce</a></li>
+                    
+                        <li class="dropdown_category"><a>Business</a></li>
+                    
+                        <li class="dropdown_category"><a>Entertainment</a></li>
+                    
+                        <li class="dropdown_category"><a>Sports</a></li>
+                    
+                        <li class="dropdown_category"><a>E-mail</a></li>
+                    
+                        <li class="dropdown_category"><a>Reference</a></li>
+                    
+                        <li class="dropdown_category"><a>Tech</a></li>
+                    
+                        <li class="dropdown_category"><a>Science</a></li>
+                    
+                        <li class="dropdown_category"><a>Educational</a></li>
+                    
+                        <li class="dropdown_category"><a>Travel</a></li>
+                    
+                        <li class="dropdown_category"><a>Random</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Glyphicon:</label>
+            <div class="col-sm-3"> 
+                <input type="text" class="form-control" name="glyphicon" placeholder="Enter Glyphicon name" />
+            </div>
+
+            <div class="input-append btn-group">
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" style="max-height: 150px; overflow: hidden; overflow-y: auto;">
+                    
+                        <li class="dropdown_glyphicon"><a>asterisk</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>plus</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>minus</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>euro</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>cloud</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>envelope</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>pencil</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>glass</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>music</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>search</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>heart</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>star</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>star-empty</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>user</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>film</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>th-large</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>th</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>th-list</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>ok</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>remove</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>off</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>cog</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>home</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>file</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>time</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>road</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>download</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>upload</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>inbox</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>play-circle</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>repeat</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>refresh</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>lock</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>flag</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>headphones</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>tag</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>tags</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>book</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>bookmark</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>print</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>camera</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>facetime-video</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>picture</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>map-marker</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>tint</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>edit</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>play</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>pause</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>stop</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>chevron-up</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>chevron-down</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>chevron-left</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>chevron-right</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>plus-sign</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>minus-sign</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>remove-sign</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>ok-sign</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>question-sign</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>leaf</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>fire</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>plane</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>magnet</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>comment</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>shopping-cart</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>bullhorn</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>bell</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>certificate</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>globe</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>wrench</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>filter</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>heart-empty</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>phone</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>pushpin</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>gbp</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>usd</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>flash</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>record</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>send</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>cutlery</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>earphone</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>phone-alt</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>tower</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>tree-conifer</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a>tree-deciduos</a></li>
+                    
+                        <li class="dropdown_glyphicon"><a></a></li>
+                                       
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Row No:</label>
+            <div class="col-sm-3"> 
+                <input type="number" class="form-control" name="row_number" placeholder="Enter row no" />
+            </div>
+        </div>
+
+        <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-3">
+                <button type="submit" class="btn btn-default">Done</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+        <div class="container-fluid">
+    <div class="row">
+        
+            <div class="col-sm-2">
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="54" style="background-color: #6495ed;">
+
+                                <a href="/b/category_up/54" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/54" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/54" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/54" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/54" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="54" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="54" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#6495ed" category-row-number="0" category-column-number="0" category-name="Social"></span>
+
+                                <span style="color:#ffffff">Social</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_54">
+                            
+                            <div class="bm_style">
+                                <span id="391" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="391" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="391" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="391" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="391" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Facebook" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.facebook.com/" bookmark-category="Social"></span>
+
+                                <a href="http://www.facebook.com/">
+                                    
+                                    Facebook
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="392" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="392" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="392" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="392" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="392" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Twitter" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="https://twitter.com/" bookmark-category="Social"></span>
+
+                                <a href="https://twitter.com/">
+                                    
+                                    Twitter
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="393" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="393" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="393" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="393" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="393" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Google+" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="https://plus.google.com/" bookmark-category="Social"></span>
+
+                                <a href="https://plus.google.com/">
+                                    
+                                    Google+
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="394" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="394" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="394" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="394" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="394" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Quora" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="http://www.quora.com/" bookmark-category="Social"></span>
+
+                                <a href="http://www.quora.com/">
+                                    
+                                    Quora
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="395" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="395" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="395" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="395" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="395" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Instagram" bookmark-row-number="4" bookmark-glyphicon="glyphicon-camera" bookmark-link="http://instagram.com/" bookmark-category="Social"></span>
+
+                                <a href="http://instagram.com/">
+                                    
+                                        <span class="glyphicon glyphicon-glyphicon-camera"></span>
+                                    
+                                    Instagram
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="396" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="396" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="396" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="396" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="396" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Flickr" bookmark-row-number="5" bookmark-glyphicon="glyphicon-camera" bookmark-link="https://www.flickr.com/" bookmark-category="Social"></span>
+
+                                <a href="https://www.flickr.com/">
+                                    
+                                        <span class="glyphicon glyphicon-glyphicon-camera"></span>
+                                    
+                                    Flickr
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="397" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="397" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="397" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="397" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="397" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="LinkedIn" bookmark-row-number="6" bookmark-glyphicon="" bookmark-link="http://www.linkedin.com/" bookmark-category="Social"></span>
+
+                                <a href="http://www.linkedin.com/">
+                                    
+                                    LinkedIn
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="398" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="398" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="398" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="398" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="398" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Reddit" bookmark-row-number="7" bookmark-glyphicon="" bookmark-link="http://www.reddit.com/" bookmark-category="Social"></span>
+
+                                <a href="http://www.reddit.com/">
+                                    
+                                    Reddit
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="399" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="399" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="399" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="399" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="399" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Meetup" bookmark-row-number="8" bookmark-glyphicon="" bookmark-link="http://www.meetup.com/" bookmark-category="Social"></span>
+
+                                <a href="http://www.meetup.com/">
+                                    
+                                    Meetup
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="400" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="400" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="400" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="400" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="400" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Digg" bookmark-row-number="9" bookmark-glyphicon="" bookmark-link="http://www.digg.com/" bookmark-category="Social"></span>
+
+                                <a href="http://www.digg.com/">
+                                    
+                                    Digg
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="401" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="401" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="401" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="401" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="401" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="9gag" bookmark-row-number="10" bookmark-glyphicon="" bookmark-link="http://9gag.com/" bookmark-category="Social"></span>
+
+                                <a href="http://9gag.com/">
+                                    
+                                    9gag
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="54">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/54">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="55" style="background-color: #c41414;">
+
+                                <a href="/b/category_up/55" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/55" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/55" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/55" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/55" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="55" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="55" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#c41414" category-row-number="1" category-column-number="0" category-name="News"></span>
+
+                                <span style="color:#ffffff">News</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_55">
+                            
+                            <div class="bm_style">
+                                <span id="402" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="402" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="402" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="402" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="402" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Reuters" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.reuters.com/" bookmark-category="News"></span>
+
+                                <a href="http://www.reuters.com/">
+                                    
+                                    Reuters
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="403" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="403" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="403" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="403" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="403" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Google News" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="https://news.google.com/" bookmark-category="News"></span>
+
+                                <a href="https://news.google.com/">
+                                    
+                                    Google News
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="404" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="404" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="404" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="404" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="404" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Yahoo News" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="http://news.yahoo.com/" bookmark-category="News"></span>
+
+                                <a href="http://news.yahoo.com/">
+                                    
+                                    Yahoo News
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="405" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="405" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="405" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="405" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="405" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="CNN" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="http://edition.cnn.com/" bookmark-category="News"></span>
+
+                                <a href="http://edition.cnn.com/">
+                                    
+                                    CNN
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="406" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="406" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="406" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="406" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="406" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="The Guardian" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="http://www.theguardian.com/" bookmark-category="News"></span>
+
+                                <a href="http://www.theguardian.com/">
+                                    
+                                    The Guardian
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="407" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="407" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="407" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="407" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="407" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="BBC News" bookmark-row-number="5" bookmark-glyphicon="" bookmark-link="http://www.bbc.com/news/" bookmark-category="News"></span>
+
+                                <a href="http://www.bbc.com/news/">
+                                    
+                                    BBC News
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="408" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="408" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="408" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="408" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="408" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Fox News" bookmark-row-number="6" bookmark-glyphicon="" bookmark-link="http://www.foxnews.com/" bookmark-category="News"></span>
+
+                                <a href="http://www.foxnews.com/">
+                                    
+                                    Fox News
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="409" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="409" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="409" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="409" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="409" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="The Hindu" bookmark-row-number="7" bookmark-glyphicon="" bookmark-link="http://www.thehindu.com/" bookmark-category="News"></span>
+
+                                <a href="http://www.thehindu.com/">
+                                    
+                                    The Hindu
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="410" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="410" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="410" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="410" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="410" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Times of India" bookmark-row-number="8" bookmark-glyphicon="" bookmark-link="http://timesofindia.indiatimes.com/" bookmark-category="News"></span>
+
+                                <a href="http://timesofindia.indiatimes.com/">
+                                    
+                                    Times of India
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="411" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="411" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="411" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="411" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="411" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Deccan Herald" bookmark-row-number="9" bookmark-glyphicon="" bookmark-link="http://www.deccanherald.com/" bookmark-category="News"></span>
+
+                                <a href="http://www.deccanherald.com/">
+                                    
+                                    Deccan Herald
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="412" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="412" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="412" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="412" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="412" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Russian Times" bookmark-row-number="10" bookmark-glyphicon="" bookmark-link="http://rt.com/" bookmark-category="News"></span>
+
+                                <a href="http://rt.com/">
+                                    
+                                    Russian Times
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="413" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="413" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="413" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="413" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="413" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Time" bookmark-row-number="11" bookmark-glyphicon="" bookmark-link="http://time.com/" bookmark-category="News"></span>
+
+                                <a href="http://time.com/">
+                                    
+                                    Time
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="55">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/55">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        
+            <div class="col-sm-2">
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="56" style="background-color: #548b54;">
+
+                                <a href="/b/category_up/56" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/56" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/56" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/56" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/56" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="56" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="56" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#548b54" category-row-number="0" category-column-number="1" category-name="E-commerce"></span>
+
+                                <span style="color:#ffffff">E-com...</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_56">
+                            
+                            <div class="bm_style">
+                                <span id="414" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="414" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="414" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="414" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="414" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Amazon" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.amazon.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="http://www.amazon.com/">
+                                    
+                                    Amazon
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="415" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="415" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="415" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="415" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="415" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Ebay" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.ebay.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="http://www.ebay.com/">
+                                    
+                                    Ebay
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="416" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="416" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="416" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="416" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="416" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="PayPal" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="https://www.paypal.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="https://www.paypal.com/">
+                                    
+                                    PayPal
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="417" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="417" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="417" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="417" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="417" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Paytm" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="https://paytm.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="https://paytm.com/">
+                                    
+                                    Paytm
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="418" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="418" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="418" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="418" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="418" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Flipkart" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="http://www.flipkart.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="http://www.flipkart.com/">
+                                    
+                                    Flipkart
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="419" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="419" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="419" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="419" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="419" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Snapdeal" bookmark-row-number="5" bookmark-glyphicon="" bookmark-link="http://www.snapdeal.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="http://www.snapdeal.com/">
+                                    
+                                    Snapdeal
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="420" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="420" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="420" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="420" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="420" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Groupon" bookmark-row-number="6" bookmark-glyphicon="" bookmark-link="http://www.groupon.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="http://www.groupon.com/">
+                                    
+                                    Groupon
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="421" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="421" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="421" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="421" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="421" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Best Buy" bookmark-row-number="7" bookmark-glyphicon="" bookmark-link="http://www.bestbuy.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="http://www.bestbuy.com/">
+                                    
+                                    Best Buy
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="422" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="422" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="422" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="422" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="422" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Etsy" bookmark-row-number="8" bookmark-glyphicon="" bookmark-link="https://www.etsy.com/" bookmark-category="E-commerce"></span>
+
+                                <a href="https://www.etsy.com/">
+                                    
+                                    Etsy
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="56">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/56">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="57" style="background-color: #c1cdc1;">
+
+                                <a href="/b/category_up/57" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/57" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/57" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/57" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/57" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="57" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="57" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#c1cdc1" category-row-number="1" category-column-number="1" category-name="Business"></span>
+
+                                <span style="color:#ffffff">Business</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_57">
+                            
+                            <div class="bm_style">
+                                <span id="423" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="423" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="423" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="423" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="423" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Forbes" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.forbes.com/" bookmark-category="Business"></span>
+
+                                <a href="http://www.forbes.com/">
+                                    
+                                    Forbes
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="424" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="424" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="424" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="424" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="424" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Yahoo Finance" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://finance.yahoo.com/" bookmark-category="Business"></span>
+
+                                <a href="http://finance.yahoo.com/">
+                                    
+                                    Yahoo Finance
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="57">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/57">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        
+            <div class="col-sm-2">
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="58" style="background-color: #cd5c5c;">
+
+                                <a href="/b/category_up/58" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/58" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/58" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/58" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/58" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="58" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="58" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#cd5c5c" category-row-number="0" category-column-number="2" category-name="Entertainment"></span>
+
+                                <span style="color:#ffffff">Enter...</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_58">
+                            
+                            <div class="bm_style">
+                                <span id="425" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="425" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="425" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="425" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="425" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Youtube" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="https://www.youtube.com/" bookmark-category="Entertainment"></span>
+
+                                <a href="https://www.youtube.com/">
+                                    
+                                    Youtube
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="426" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="426" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="426" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="426" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="426" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Spotify" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="https://www.spotify.com/" bookmark-category="Entertainment"></span>
+
+                                <a href="https://www.spotify.com/">
+                                    
+                                    Spotify
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="427" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="427" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="427" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="427" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="427" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Metacafe" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="http://www.metacafe.com/" bookmark-category="Entertainment"></span>
+
+                                <a href="http://www.metacafe.com/">
+                                    
+                                    Metacafe
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="428" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="428" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="428" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="428" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="428" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Pandora" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="http://www.pandora.com/" bookmark-category="Entertainment"></span>
+
+                                <a href="http://www.pandora.com/">
+                                    
+                                    Pandora
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="429" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="429" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="429" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="429" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="429" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="IMDb" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="http://www.imdb.com/" bookmark-category="Entertainment"></span>
+
+                                <a href="http://www.imdb.com/">
+                                    
+                                    IMDb
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="430" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="430" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="430" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="430" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="430" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Rotten Tomatoes" bookmark-row-number="5" bookmark-glyphicon="" bookmark-link="http://www.rottentomatoes.com/" bookmark-category="Entertainment"></span>
+
+                                <a href="http://www.rottentomatoes.com/">
+                                    
+                                    Rotten Tomatoes
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="58">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/58">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="59" style="background-color: #ffb90f;">
+
+                                <a href="/b/category_up/59" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/59" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/59" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/59" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/59" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="59" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="59" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#ffb90f" category-row-number="1" category-column-number="2" category-name="Sports"></span>
+
+                                <span style="color:#ffffff">Sports</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_59">
+                            
+                            <div class="bm_style">
+                                <span id="431" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="431" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="431" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="431" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="431" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Goal" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.goal.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.goal.com/">
+                                    
+                                    Goal
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="432" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="432" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="432" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="432" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="432" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="ESPN Cricinfo" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.espncricinfo.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.espncricinfo.com/">
+                                    
+                                    ESPN Cricinfo
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="433" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="433" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="433" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="433" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="433" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Yahoo Sports" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="sports.yahoo.com/" bookmark-category="Sports"></span>
+
+                                <a href="sports.yahoo.com/">
+                                    
+                                    Yahoo Sports
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="434" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="434" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="434" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="434" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="434" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="ESPN" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="espn.go.com/" bookmark-category="Sports"></span>
+
+                                <a href="espn.go.com/">
+                                    
+                                    ESPN
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="435" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="435" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="435" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="435" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="435" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="NFL" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="http://www.nfl.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.nfl.com/">
+                                    
+                                    NFL
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="436" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="436" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="436" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="436" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="436" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="NBA" bookmark-row-number="5" bookmark-glyphicon="" bookmark-link="http://www.nba.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.nba.com/">
+                                    
+                                    NBA
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="437" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="437" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="437" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="437" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="437" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Sky Sports" bookmark-row-number="6" bookmark-glyphicon="" bookmark-link="http://www.skysports.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.skysports.com/">
+                                    
+                                    Sky Sports
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="438" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="438" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="438" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="438" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="438" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="WWE" bookmark-row-number="7" bookmark-glyphicon="" bookmark-link="http://www.wwe.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.wwe.com/">
+                                    
+                                    WWE
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="439" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="439" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="439" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="439" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="439" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Cricbuzz" bookmark-row-number="8" bookmark-glyphicon="" bookmark-link="http://www.cricbuzz.com/" bookmark-category="Sports"></span>
+
+                                <a href="http://www.cricbuzz.com/">
+                                    
+                                    Cricbuzz
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="59">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/59">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        
+            <div class="col-sm-2">
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="60" style="background-color: #cdcd00;">
+
+                                <a href="/b/category_up/60" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/60" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/60" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/60" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/60" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="60" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="60" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#cdcd00" category-row-number="0" category-column-number="3" category-name="E-mail"></span>
+
+                                <span style="color:#ffffff">E-mail</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_60">
+                            
+                            <div class="bm_style">
+                                <span id="440" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="440" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="440" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="440" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="440" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Gmail" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="https://mail.google.com/" bookmark-category="E-mail"></span>
+
+                                <a href="https://mail.google.com/">
+                                    
+                                    Gmail
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="441" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="441" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="441" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="441" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="441" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Gmail Light" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="https://mail.google.com/mail/h/" bookmark-category="E-mail"></span>
+
+                                <a href="https://mail.google.com/mail/h/">
+                                    
+                                    Gmail Light
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="442" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="442" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="442" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="442" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="442" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Outlook" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="https://bay176.mail.live.com/" bookmark-category="E-mail"></span>
+
+                                <a href="https://bay176.mail.live.com/">
+                                    
+                                    Outlook
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="443" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="443" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="443" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="443" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="443" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Yahoo" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="https://mail.yahoo.com/" bookmark-category="E-mail"></span>
+
+                                <a href="https://mail.yahoo.com/">
+                                    
+                                    Yahoo
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="60">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/60">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="61" style="background-color: #81d8d0;">
+
+                                <a href="/b/category_up/61" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/61" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/61" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/61" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/61" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="61" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="61" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#81d8d0" category-row-number="1" category-column-number="3" category-name="Reference"></span>
+
+                                <span style="color:#ffffff">Refer...</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_61">
+                            
+                            <div class="bm_style">
+                                <span id="444" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="444" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="444" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="444" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="444" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Wikipedia" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="https://www.wikipedia.org/" bookmark-category="Reference"></span>
+
+                                <a href="https://www.wikipedia.org/">
+                                    
+                                    Wikipedia
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="445" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="445" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="445" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="445" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="445" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Archive.org" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="https://archive.org/" bookmark-category="Reference"></span>
+
+                                <a href="https://archive.org/">
+                                    
+                                    Archive.org
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="446" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="446" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="446" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="446" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="446" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Urban Dictionary" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="http://www.urbandictionary.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.urbandictionary.com/">
+                                    
+                                    Urban Dictionary
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="447" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="447" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="447" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="447" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="447" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="WordReference" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="http://www.wordreference.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.wordreference.com/">
+                                    
+                                    WordReference
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="448" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="448" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="448" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="448" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="448" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Goodreads" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="http://www.goodreads.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.goodreads.com/">
+                                    
+                                    Goodreads
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="449" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="449" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="449" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="449" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="449" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Thesaurus" bookmark-row-number="5" bookmark-glyphicon="" bookmark-link="http://www.thesaurus.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.thesaurus.com/">
+                                    
+                                    Thesaurus
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="450" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="450" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="450" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="450" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="450" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="How Stuff Works" bookmark-row-number="6" bookmark-glyphicon="" bookmark-link="http://www.howstuffworks.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.howstuffworks.com/">
+                                    
+                                    How Stuff Works
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="451" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="451" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="451" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="451" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="451" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Brainy Quote" bookmark-row-number="7" bookmark-glyphicon="" bookmark-link="http://www.brainyquote.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.brainyquote.com/">
+                                    
+                                    Brainy Quote
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="452" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="452" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="452" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="452" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="452" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="White Pages" bookmark-row-number="8" bookmark-glyphicon="" bookmark-link="http://www.whitepages.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.whitepages.com/">
+                                    
+                                    White Pages
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="453" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="453" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="453" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="453" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="453" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Yellow Pages" bookmark-row-number="9" bookmark-glyphicon="" bookmark-link="http://www.yellowpages.com/" bookmark-category="Reference"></span>
+
+                                <a href="http://www.yellowpages.com/">
+                                    
+                                    Yellow Pages
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="61">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/61">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        
+            <div class="col-sm-2">
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="62" style="background-color: #ffa500;">
+
+                                <a href="/b/category_up/62" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/62" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/62" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/62" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/62" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="62" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="62" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#ffa500" category-row-number="0" category-column-number="4" category-name="Tech"></span>
+
+                                <span style="color:#ffffff">Tech</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_62">
+                            
+                            <div class="bm_style">
+                                <span id="454" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="454" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="454" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="454" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="454" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Github" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="https://github.com/" bookmark-category="Tech"></span>
+
+                                <a href="https://github.com/">
+                                    
+                                    Github
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="455" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="455" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="455" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="455" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="455" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Stack Overflow" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.stackoverflow.com/" bookmark-category="Tech"></span>
+
+                                <a href="http://www.stackoverflow.com/">
+                                    
+                                    Stack Overflow
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="456" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="456" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="456" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="456" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="456" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="TechCrunch" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="http://techcrunch.com/" bookmark-category="Tech"></span>
+
+                                <a href="http://techcrunch.com/">
+                                    
+                                    TechCrunch
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="62">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/62">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="63" style="background-color: #12d4B9;">
+
+                                <a href="/b/category_up/63" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/63" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/63" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/63" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/63" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="63" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="63" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#12d4B9" category-row-number="1" category-column-number="4" category-name="Science"></span>
+
+                                <span style="color:#ffffff">Science</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_63">
+                            
+                            <div class="bm_style">
+                                <span id="457" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="457" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="457" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="457" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="457" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Elsevier" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.elsevier.com/" bookmark-category="Science"></span>
+
+                                <a href="http://www.elsevier.com/">
+                                    
+                                    Elsevier
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="458" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="458" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="458" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="458" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="458" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="TED" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.ted.com/" bookmark-category="Science"></span>
+
+                                <a href="http://www.ted.com/">
+                                    
+                                    TED
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="63">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/63">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="64" style="background-color: #338167;">
+
+                                <a href="/b/category_up/64" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/64" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/64" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/64" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/64" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="64" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="64" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#338167" category-row-number="2" category-column-number="4" category-name="Educational"></span>
+
+                                <span style="color:#ffffff">Educa...</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_64">
+                            
+                            <div class="bm_style">
+                                <span id="459" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="459" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="459" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="459" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="459" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Coursera" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="https://www.coursera.org/" bookmark-category="Educational"></span>
+
+                                <a href="https://www.coursera.org/">
+                                    
+                                    Coursera
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="460" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="460" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="460" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="460" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="460" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="W3C" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.w3.org/" bookmark-category="Educational"></span>
+
+                                <a href="http://www.w3.org/">
+                                    
+                                    W3C
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="461" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="461" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="461" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="461" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="461" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Udemy" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="https://www.udemy.com/" bookmark-category="Educational"></span>
+
+                                <a href="https://www.udemy.com/">
+                                    
+                                    Udemy
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="462" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="462" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="462" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="462" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="462" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="MIT" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="http://web.mit.edu/" bookmark-category="Educational"></span>
+
+                                <a href="http://web.mit.edu/">
+                                    
+                                    MIT
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="463" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="463" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="463" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="463" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="463" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Stanford" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="online.stanford.edu/" bookmark-category="Educational"></span>
+
+                                <a href="online.stanford.edu/">
+                                    
+                                    Stanford
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="464" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="464" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="464" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="464" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="464" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Duolingo" bookmark-row-number="5" bookmark-glyphicon="" bookmark-link="https://www.duolingo.com/" bookmark-category="Educational"></span>
+
+                                <a href="https://www.duolingo.com/">
+                                    
+                                    Duolingo
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="64">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/64">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        
+            <div class="col-sm-2">
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="65" style="background-color: #1f45d0;">
+
+                                <a href="/b/category_up/65" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/65" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/65" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/65" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/65" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="65" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="65" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#1f45d0" category-row-number="0" category-column-number="5" category-name="Travel"></span>
+
+                                <span style="color:#ffffff">Travel</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_65">
+                            
+                            <div class="bm_style">
+                                <span id="465" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="465" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="465" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="465" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="465" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Bookings" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="https://www.booking.com/" bookmark-category="Travel"></span>
+
+                                <a href="https://www.booking.com/">
+                                    
+                                    Bookings
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="466" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="466" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="466" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="466" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="466" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Trip Advisor" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.tripadvisor.in/" bookmark-category="Travel"></span>
+
+                                <a href="http://www.tripadvisor.in/">
+                                    
+                                    Trip Advisor
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="467" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="467" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="467" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="467" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="467" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Expedia" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="http://www.expedia.com/" bookmark-category="Travel"></span>
+
+                                <a href="http://www.expedia.com/">
+                                    
+                                    Expedia
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="468" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="468" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="468" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="468" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="468" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Zomato" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="https://www.zomato.com/" bookmark-category="Travel"></span>
+
+                                <a href="https://www.zomato.com/">
+                                    
+                                    Zomato
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="469" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="469" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="469" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="469" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="469" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Lonely Planet" bookmark-row-number="4" bookmark-glyphicon="" bookmark-link="http://www.lonelyplanet.com/" bookmark-category="Travel"></span>
+
+                                <a href="http://www.lonelyplanet.com/">
+                                    
+                                    Lonely Planet
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="65">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/65">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    </br>
+                    <div class="category-container">
+                        <div class="progress">
+                            <div class="progress-bar progress_style_edit"  num="66" style="background-color: #473c8b;">
+
+                                <a href="/b/category_up/66" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-up"></span> </a>
+                                <a href="/b/category_down/66" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-down"></span> </a>
+                                <a href="/b/category_left/66" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-left"></span> </a>
+                                <a href="/b/category_right/66" class="cat_glyph_style"> <span class="glyphicon glyphicon-arrow-right"></span> </a>
+                                <a href="/b/random_color/66" class="cat_glyph_style"> <span class="glyphicon glyphicon-random"></span> </a>
+                                <span id="66" class="cat_del cat_glyph_style glyphicon glyphicon-trash"></span>
+
+                                <span id="66" class="cat_edit cat_glyph_style glyphicon glyphicon-pencil" category-color="#473c8b" category-row-number="1" category-column-number="5" category-name="Random"></span>
+
+                                <span style="color:#ffffff">Random</span>
+                            </div>
+                        </div>
+
+                        <div class="category-sub-container" id="cat_num_66">
+                            
+                            <div class="bm_style">
+                                <span id="470" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="470" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="470" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="470" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="470" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Cracked" bookmark-row-number="0" bookmark-glyphicon="" bookmark-link="http://www.cracked.com/" bookmark-category="Random"></span>
+
+                                <a href="http://www.cracked.com/">
+                                    
+                                    Cracked
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="471" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="471" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="471" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="471" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="471" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="StumbleUpon" bookmark-row-number="1" bookmark-glyphicon="" bookmark-link="http://www.stumbleupon.com/" bookmark-category="Random"></span>
+
+                                <a href="http://www.stumbleupon.com/">
+                                    
+                                    StumbleUpon
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="472" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="472" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="472" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="472" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="472" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Blah Therapy" bookmark-row-number="2" bookmark-glyphicon="" bookmark-link="http://blahtherapy.com/" bookmark-category="Random"></span>
+
+                                <a href="http://blahtherapy.com/">
+                                    
+                                    Blah Therapy
+                                </a>
+                            </div>
+                            
+                            <div class="bm_style">
+                                <span id="473" class="bm_up bm_style_glyphicon glyphicon glyphicon-arrow-up"></span>
+                                <span id="473" class="bm_down bm_style_glyphicon glyphicon glyphicon-arrow-down"></span>
+                                <span id="473" class="bm_random bm_style_glyphicon glyphicon glyphicon-random"></span>
+                                <span id="473" class="bm_del bm_style_glyphicon glyphicon glyphicon-trash"></span>
+                                
+                                <span id="473" class="bm_edit bm_style_glyphicon glyphicon glyphicon-pencil" bookmark-name="Cleverbot" bookmark-row-number="3" bookmark-glyphicon="" bookmark-link="http://www.cleverbot.com/" bookmark-category="Random"></span>
+
+                                <a href="http://www.cleverbot.com/">
+                                    
+                                    Cleverbot
+                                </a>
+                            </div>
+                            
+                            <div>
+                                <div class="show_form_add_bookmark" style="font-size: 1.5em; text-align: center;" num="66">
+                                    <span class="glyphicon glyphicon-plus bm_style_glyphicon"></span>
+                                </div>
+                                <div class="form_add_bookmark">
+                                    <form class="form-horizontal" method="post" action="/b/add_bookmark/66">
+                                        <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control add_bm_style" name="name" placeholder="Enter bookmark name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control add_bm_style" name="link" placeholder="Enter link">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                   <input type="submit" value="Add" class="form-control"/> <!-- btn btn_small"/> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        
+    </div>
+</div>
+
+<br/><br/><br/><br/>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-2">
+        <p style="text-align: center;"> New Category </p>
+        <form class="form-horzontal" method="post" action="/b/add_category/">
+            <input type='hidden' name='csrfmiddlewaretoken' value='QrKdNkJWxo1xjHuv2iwf9ST7QsLmYTQ6' />
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Enter category name">
+            </div>
+
+            <div>
+                <div class="form-group col-xs-10">
+                    <input type="text" class="form-control" name="color" placeholder="Color"/>
+                </div>
+            
+                <div class="input-append form-group col-xs-2">
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" style="max-height: 150px; overflow: hidden; overflow-y: auto;">
+                        
+                            <li class="dropdown_color"><a>red</a></li>
+                        
+                            <li class="dropdown_color"><a>blue</a></li>
+                        
+                            <li class="dropdown_color"><a>white</a></li>
+                        
+                            <li class="dropdown_color"><a>green</a></li>
+                        
+                            <li class="dropdown_color"><a>black</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            </br>
+            </br>
+            </br>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="column_number" placeholder="Column number"/>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="row_number" placeholder="Row number"/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="form-control" value="Create"/>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+    </body>
+    <script>
+
+            $(document).ready( function(){
+
+            // Nav-pill controlls.
+            $('.bm_collapser').click( function(){
+                $('.category-sub-container').hide();
+            });
+
+            $('.bm_expander').click( function(){
+                $('.category-sub-container').show();
+            });
+
+            // Toggle bookmark visibility.
+            $('.progress_style_home').click( function(){
+                var cat_num = '#cat_num_' + $(this).attr('num');
+                $(cat_num).toggle();
+            });
+
+            $('.progress_style_edit').click( function(){
+                if ($(e.target).hasClass('cat_glyph_style'))
+                    return;
+                var cat_num = '#cat_num_' + $(this).attr('num');
+                $(cat_num).toggle();
+            });
+
+            // Change style for different modes.
+            $('.night_mode').click( function(){
+                $('body').css('background-color', '#1c1c1c');
+                $('.bm_style').css('color', '#ffb90f').find('a').css('color', '#ffb90f');
+            });
+
+            $('.bright_mode').click( function(){
+                $('body').css('background-color', 'rgba(238,173,14, 0.1)');
+                $('.bm_style').css('color', '').find('a').css('color', '');
+            });
+
+            // Override the default cursor.
+            $('.glyphicon').hover( function(){
+                $(this).css('cursor', 'pointer');
+            });
+
+            $('.progress_style_home').hover( function(){
+                $(this).css('cursor', 'pointer');
+            });
+
+            $('.progress_style_edit').hover( function(){
+                $(this).css('cursor', 'pointer');
+            });
+
+            // Move stuff around in the edit page.
+            $('.bm_del').dblclick( function(){
+                window.location.href='/b/trash_bookmark/' + this.id;
+            });
+
+            $('.bm_up').click( function(){
+                window.location.href='/b/bookmark_up/' + this.id;
+            });
+
+            $('.bm_down').click( function(){
+                window.location.href='/b/bookmark_down/' + this.id;
+            });
+
+            $('.bm_random').click( function(){
+                window.location.href='/b/random_glyphicon/' + this.id;
+            });
+
+            $('.cat_del').dblclick( function(){
+                window.location.href='/b/delete_category/' + this.id;
+            });
+        });
+    $(".hidden_field").hide();
+    $(".form_add_bookmark").hide();
+    $(".bookmark_big_edit_form").hide();
+    $(".category_big_edit_form").hide();
+
+    $(".show_form_add_bookmark").click( function(){
+        $(".form_add_bookmark").hide();
+        $(".show_form_add_bookmark").show();
+        var $parent = $(this).parent();
+        $(".form_add_bookmark", $parent).show();
+        $(this).hide();
+    });
+
+    $(".hide_big_edit_form").click( function(){
+        $(".bookmark_big_edit_form").hide();
+        $(".category_big_edit_form").hide();
+    });
+
+    $(".dropdown_color").click( function(){
+        var color = $(this).text();
+        $("input[name=color]").val(color);
+    });
+
+    $(".dropdown_glyphicon").click( function(){
+        var glyphicon = $(this).text();
+        $("input[name=glyphicon]").val(glyphicon);
+    });
+
+    $(".dropdown_category").click( function(){
+        var category = $(this).text();
+        $("input[name=category]").val(category);
+    });
+
+    $(".cat_edit").click( function(e){
+        e.stopPropagation();
+        
+        $(".bookmark_big_edit_form").hide();
+        var current = $(this);
+        var name = current.attr("category-name");
+        var column_number = parseInt(current.attr("category-column-number"), 10);
+        var row_number = parseInt(current.attr("category-row-number"), 10);
+        var color = current.attr("category-color");
+        var id = current.attr("id");
+
+        var edit_form = $(".category_big_edit_form");
+        edit_form.find("input[name=category_name]").val(name);
+        edit_form.find("input[name=column_number]").val(column_number+1);
+        edit_form.find("input[name=row_number]").val(row_number+1);
+        edit_form.find("input[name=color]").val(color);
+        edit_form.find("input[name=ID]").val(id);
+
+        edit_form.show();
+    });
+
+    $(".bm_edit").click( function(){
+        $(".category_big_edit_form").hide();
+        var current = $(this);
+        var name = current.attr("bookmark-name");
+        var glyphicon = current.attr("bookmark-glyphicon");
+        var row_number = parseInt(current.attr("bookmark-row-number"), 10);
+        var link = current.attr("bookmark-link");
+        var category = current.attr("bookmark-category");
+        var id = current.attr("id");
+
+        var edit_form = $(".bookmark_big_edit_form");
+        edit_form.find("input[name=bookmark_name]").val(name);
+        edit_form.find("input[name=glyphicon]").val(glyphicon);
+        edit_form.find("input[name=row_number]").val(row_number+1);
+        edit_form.find("input[name=link]").val(link);
+        edit_form.find("input[name=category]").val(category);
+        edit_form.find("input[name=ID]").val(id);
+
+        edit_form.show();
+    });
+
+    </script>
+</html>
