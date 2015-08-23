@@ -1,64 +1,1021 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>
-			Bookmarks | Index
-		</title>
-	</head>
-	<style>
-		a:hover {
-			text-decoration: none;
-		}
+        <title>
+            Bookmarks | Home
+        </title>
+    </head>
+    <style>
 
-		.navbar {
-			background-color: #008b8b;
-			border: 1px solid #008b8b;
-		}
+            .navbar {
+            background-color: #008b8b;
+            border: 1px solid #008b8b;
+        }
 
-		.navbar .nav > li > a {
-		    color:  #000000;
-		    font-size: 1.2em;
-		}
-
-		.navbar-header > a.navbar-brand {
-			color: #eead0e;
+        .navbar .nav > li > a {
+            color:  #eead0e;
             font-weight: bold;
-		}
+        }
 
-		.navbar .nav > li > a:hover {
-		    color:  #ffffff;
-		    background-color: #eead0e;
-		}
+        .navbar-header > a.navbar-brand {
+            color: #eead0e;
+            font-weight: bold;
+        }
 
-		.navbar-header > a.navbar-brand:hover {
-			color: #eead0e;
-		}
+        .navbar .nav > li > a:hover {
+            color:  #ffffff;
+            background-color: #eead0e;
+        }
 
-		.nav .active a{
-			background-color: #eead0e!important;
-		}
-	</style>
-	<body style="background-color:rgba(238,173,14, 0.1)">
-		<nav class="navbar navbar-inverse navbar-fixed-top" style="border-radius:0px;">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand">Bookmarks</a>
-				</div>
-			</div>
-		</nav>
-		</br>
-		</br>
-		</br>
-		</br>
-		<div class="container">
-			<ul class="nav nav-pills">
-				<li><a href="homepage.html">Home</a></li>
-				<li><a href="login.html">Login</a></li>
-			</ul>
-		</div>
-	</body>
-</home>
+        .navbar-header > a.navbar-brand:hover {
+            color: #eead0e;
+        }
+
+        .nav .active a{
+            background-color: #eead0e!important;
+        }
+        
+        .btn{
+            background: transparent;
+            color: #F2F2F2;
+            font-size: 1.2em;
+            color: #000;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .btn:hover{
+            background: #eead0e;
+            color: #000000;
+        }
+
+        .login{
+            background-color: #008b8b;
+        }
+
+        .signup{
+            background-color:#008b8b;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: rgba(238,173,14, 0.1);
+        }
+
+        .progress {
+            border-radius: 0%;
+        }
+
+        .progress_style_home {
+            width: 100%;
+            font-size: 1em;
+        }
+
+        .bm_style {
+            text-align: center;
+        }
+
+        .bm_style:hover {
+            background-color: #8b8386;
+            color: #ffffff;
+        }
+
+        .category-container:hover{
+            background-color: rgba(139,131,134, 0.15);
+        }
+
+        .input-append .btn.dropdown-toggle {
+            float: none;
+        }
+        
+        .box {
+            border: 1px solid black;
+        }
+        
+        .progress_style_edit{
+             width: 100%;
+             font-size: 1em;
+             text-align: left;
+        }
+
+        .bm_style_glyphicon {
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+        }
+
+        .bm_style_glyphicon:hover {
+            color: #000000;
+        }
+
+        .cat_glyph_style {
+            color: #ffffff;
+            font-size: 0.9em;
+        }
+
+        .cat_glyph_style:hover {
+            color: #000000;
+        }
+
+    </style>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" style="border-radius:0px;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Bookmarks</a>
+                </div>
+                <div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home: new_user</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="edit.html">Edit</a></li>
+                            <li><a href="trash.html">Trash</a></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        </br></br></br>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li><a href="#" class="bm_collapser"> Collapse All </a></li>
+        <li><a href="#" class="bm_expander"> Expand All </a></li>
+        <li><a href="#" class="night_mode"> Night Mode </a></li>
+        <li><a href="#" class="bright_mode"> Bright Mode </a></li>
+    </ul>
+</div>
+
+        <div class="container-fluid">
+            <div class="row">
+                
+                    <div class="col-sm-2">
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="54" style="background-color: #6495ed;">
+                                        <span style="color:#000000">Social</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_54">
+                                    
+                                        <a href="http://www.facebook.com/">
+                                            <div class="bm_style">
+                                                
+                                                Facebook
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://twitter.com/">
+                                            <div class="bm_style">
+                                                
+                                                Twitter
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://plus.google.com/">
+                                            <div class="bm_style">
+                                                
+                                                Google+
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.quora.com/">
+                                            <div class="bm_style">
+                                                
+                                                Quora
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://instagram.com/">
+                                            <div class="bm_style">
+                                                
+                                                    <span class="glyphicon glyphicon-glyphicon-camera"></span>
+                                                
+                                                Instagram
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.flickr.com/">
+                                            <div class="bm_style">
+                                                
+                                                    <span class="glyphicon glyphicon-glyphicon-camera"></span>
+                                                
+                                                Flickr
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.linkedin.com/">
+                                            <div class="bm_style">
+                                                
+                                                LinkedIn
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.reddit.com/">
+                                            <div class="bm_style">
+                                                
+                                                Reddit
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.meetup.com/">
+                                            <div class="bm_style">
+                                                
+                                                Meetup
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.digg.com/">
+                                            <div class="bm_style">
+                                                
+                                                Digg
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://9gag.com/">
+                                            <div class="bm_style">
+                                                
+                                                9gag
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="55" style="background-color: #c41414;">
+                                        <span style="color:#000000">News</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_55">
+                                    
+                                        <a href="http://www.reuters.com/">
+                                            <div class="bm_style">
+                                                
+                                                Reuters
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://news.google.com/">
+                                            <div class="bm_style">
+                                                
+                                                Google News
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://news.yahoo.com/">
+                                            <div class="bm_style">
+                                                
+                                                Yahoo News
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://edition.cnn.com/">
+                                            <div class="bm_style">
+                                                
+                                                CNN
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.theguardian.com/">
+                                            <div class="bm_style">
+                                                
+                                                The Guardian
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.bbc.com/news/">
+                                            <div class="bm_style">
+                                                
+                                                BBC News
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.foxnews.com/">
+                                            <div class="bm_style">
+                                                
+                                                Fox News
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.thehindu.com/">
+                                            <div class="bm_style">
+                                                
+                                                The Hindu
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://timesofindia.indiatimes.com/">
+                                            <div class="bm_style">
+                                                
+                                                Times of India
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.deccanherald.com/">
+                                            <div class="bm_style">
+                                                
+                                                Deccan Herald
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://rt.com/">
+                                            <div class="bm_style">
+                                                
+                                                Russian Times
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://time.com/">
+                                            <div class="bm_style">
+                                                
+                                                Time
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    <div class="col-sm-2">
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="56" style="background-color: #548b54;">
+                                        <span style="color:#000000">E-commerce</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_56">
+                                    
+                                        <a href="http://www.amazon.com/">
+                                            <div class="bm_style">
+                                                
+                                                Amazon
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.ebay.com/">
+                                            <div class="bm_style">
+                                                
+                                                Ebay
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.paypal.com/">
+                                            <div class="bm_style">
+                                                
+                                                PayPal
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://paytm.com/">
+                                            <div class="bm_style">
+                                                
+                                                Paytm
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.flipkart.com/">
+                                            <div class="bm_style">
+                                                
+                                                Flipkart
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.snapdeal.com/">
+                                            <div class="bm_style">
+                                                
+                                                Snapdeal
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.groupon.com/">
+                                            <div class="bm_style">
+                                                
+                                                Groupon
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.bestbuy.com/">
+                                            <div class="bm_style">
+                                                
+                                                Best Buy
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.etsy.com/">
+                                            <div class="bm_style">
+                                                
+                                                Etsy
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="57" style="background-color: #c1cdc1;">
+                                        <span style="color:#000000">Business</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_57">
+                                    
+                                        <a href="http://www.forbes.com/">
+                                            <div class="bm_style">
+                                                
+                                                Forbes
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://finance.yahoo.com/">
+                                            <div class="bm_style">
+                                                
+                                                Yahoo Finance
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    <div class="col-sm-2">
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="58" style="background-color: #cd5c5c;">
+                                        <span style="color:#000000">Entertainment</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_58">
+                                    
+                                        <a href="https://www.youtube.com/">
+                                            <div class="bm_style">
+                                                
+                                                Youtube
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.spotify.com/">
+                                            <div class="bm_style">
+                                                
+                                                Spotify
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.metacafe.com/">
+                                            <div class="bm_style">
+                                                
+                                                Metacafe
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.pandora.com/">
+                                            <div class="bm_style">
+                                                
+                                                Pandora
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.imdb.com/">
+                                            <div class="bm_style">
+                                                
+                                                IMDb
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.rottentomatoes.com/">
+                                            <div class="bm_style">
+                                                
+                                                Rotten Tomatoes
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="59" style="background-color: #ffb90f;">
+                                        <span style="color:#000000">Sports</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_59">
+                                    
+                                        <a href="http://www.goal.com/">
+                                            <div class="bm_style">
+                                                
+                                                Goal
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.espncricinfo.com/">
+                                            <div class="bm_style">
+                                                
+                                                ESPN Cricinfo
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="sports.yahoo.com/">
+                                            <div class="bm_style">
+                                                
+                                                Yahoo Sports
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="espn.go.com/">
+                                            <div class="bm_style">
+                                                
+                                                ESPN
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.nfl.com/">
+                                            <div class="bm_style">
+                                                
+                                                NFL
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.nba.com/">
+                                            <div class="bm_style">
+                                                
+                                                NBA
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.skysports.com/">
+                                            <div class="bm_style">
+                                                
+                                                Sky Sports
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.wwe.com/">
+                                            <div class="bm_style">
+                                                
+                                                WWE
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.cricbuzz.com/">
+                                            <div class="bm_style">
+                                                
+                                                Cricbuzz
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    <div class="col-sm-2">
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="60" style="background-color: #cdcd00;">
+                                        <span style="color:#000000">E-mail</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_60">
+                                    
+                                        <a href="https://mail.google.com/">
+                                            <div class="bm_style">
+                                                
+                                                Gmail
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://mail.google.com/mail/h/">
+                                            <div class="bm_style">
+                                                
+                                                Gmail Light
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://bay176.mail.live.com/">
+                                            <div class="bm_style">
+                                                
+                                                Outlook
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://mail.yahoo.com/">
+                                            <div class="bm_style">
+                                                
+                                                Yahoo
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="61" style="background-color: #81d8d0;">
+                                        <span style="color:#000000">Reference</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_61">
+                                    
+                                        <a href="https://www.wikipedia.org/">
+                                            <div class="bm_style">
+                                                
+                                                Wikipedia
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://archive.org/">
+                                            <div class="bm_style">
+                                                
+                                                Archive.org
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.urbandictionary.com/">
+                                            <div class="bm_style">
+                                                
+                                                Urban Dictionary
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.wordreference.com/">
+                                            <div class="bm_style">
+                                                
+                                                WordReference
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.goodreads.com/">
+                                            <div class="bm_style">
+                                                
+                                                Goodreads
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.thesaurus.com/">
+                                            <div class="bm_style">
+                                                
+                                                Thesaurus
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.howstuffworks.com/">
+                                            <div class="bm_style">
+                                                
+                                                How Stuff Works
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.brainyquote.com/">
+                                            <div class="bm_style">
+                                                
+                                                Brainy Quote
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.whitepages.com/">
+                                            <div class="bm_style">
+                                                
+                                                White Pages
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.yellowpages.com/">
+                                            <div class="bm_style">
+                                                
+                                                Yellow Pages
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    <div class="col-sm-2">
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="62" style="background-color: #ffa500;">
+                                        <span style="color:#000000">Tech</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_62">
+                                    
+                                        <a href="https://github.com/">
+                                            <div class="bm_style">
+                                                
+                                                Github
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.stackoverflow.com/">
+                                            <div class="bm_style">
+                                                
+                                                Stack Overflow
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://techcrunch.com/">
+                                            <div class="bm_style">
+                                                
+                                                TechCrunch
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="63" style="background-color: #12d4B9;">
+                                        <span style="color:#000000">Science</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_63">
+                                    
+                                        <a href="http://www.elsevier.com/">
+                                            <div class="bm_style">
+                                                
+                                                Elsevier
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.ted.com/">
+                                            <div class="bm_style">
+                                                
+                                                TED
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="64" style="background-color: #338167;">
+                                        <span style="color:#000000">Educational</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_64">
+                                    
+                                        <a href="https://www.coursera.org/">
+                                            <div class="bm_style">
+                                                
+                                                Coursera
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.w3.org/">
+                                            <div class="bm_style">
+                                                
+                                                W3C
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.udemy.com/">
+                                            <div class="bm_style">
+                                                
+                                                Udemy
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://web.mit.edu/">
+                                            <div class="bm_style">
+                                                
+                                                MIT
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="online.stanford.edu/">
+                                            <div class="bm_style">
+                                                
+                                                Stanford
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.duolingo.com/">
+                                            <div class="bm_style">
+                                                
+                                                Duolingo
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+                    <div class="col-sm-2">
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="65" style="background-color: #1f45d0;">
+                                        <span style="color:#000000">Travel</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_65">
+                                    
+                                        <a href="https://www.booking.com/">
+                                            <div class="bm_style">
+                                                
+                                                Bookings
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.tripadvisor.in/">
+                                            <div class="bm_style">
+                                                
+                                                Trip Advisor
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.expedia.com/">
+                                            <div class="bm_style">
+                                                
+                                                Expedia
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="https://www.zomato.com/">
+                                            <div class="bm_style">
+                                                
+                                                Zomato
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.lonelyplanet.com/">
+                                            <div class="bm_style">
+                                                
+                                                Lonely Planet
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                            </br>
+                            <div class="category-container">
+                                <div class="progress">
+                                    <div class="progress-bar progress_style_home" num="66" style="background-color: #473c8b;">
+                                        <span style="color:#000000">Random</span>
+                                    </div>
+                                </div>
+
+                                <div class="category-sub-container" id="cat_num_66">
+                                    
+                                        <a href="http://www.cracked.com/">
+                                            <div class="bm_style">
+                                                
+                                                Cracked
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.stumbleupon.com/">
+                                            <div class="bm_style">
+                                                
+                                                StumbleUpon
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://blahtherapy.com/">
+                                            <div class="bm_style">
+                                                
+                                                Blah Therapy
+                                            </div>
+                                        </a>
+                                    
+                                        <a href="http://www.cleverbot.com/">
+                                            <div class="bm_style">
+                                                
+                                                Cleverbot
+                                            </div>
+                                        </a>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </body>
+    <script>
+
+            $(document).ready( function(){
+
+            // Nav-pill controlls.
+            $('.bm_collapser').click( function(){
+                $('.category-sub-container').hide();
+            });
+
+            $('.bm_expander').click( function(){
+                $('.category-sub-container').show();
+            });
+
+            // Toggle bookmark visibility.
+            $('.progress_style_home').click( function(){
+                var cat_num = '#cat_num_' + $(this).attr('num');
+                $(cat_num).toggle();
+            });
+
+            $('.progress_style_edit').click( function(){
+                if ($(e.target).hasClass('cat_glyph_style'))
+                    return;
+                var cat_num = '#cat_num_' + $(this).attr('num');
+                $(cat_num).toggle();
+            });
+
+            // Change style for different modes.
+            $('.night_mode').click( function(){
+                $('body').css('background-color', '#1c1c1c');
+                $('.bm_style').css('color', '#ffb90f').find('a').css('color', '#ffb90f');
+            });
+
+            $('.bright_mode').click( function(){
+                $('body').css('background-color', 'rgba(238,173,14, 0.1)');
+                $('.bm_style').css('color', '').find('a').css('color', '');
+            });
+
+            // Override the default cursor.
+            $('.glyphicon').hover( function(){
+                $(this).css('cursor', 'pointer');
+            });
+
+            $('.progress_style_home').hover( function(){
+                $(this).css('cursor', 'pointer');
+            });
+
+            $('.progress_style_edit').hover( function(){
+                $(this).css('cursor', 'pointer');
+            });
+
+            // Move stuff around in the edit page.
+            $('.bm_del').dblclick( function(){
+                window.location.href='/b/trash_bookmark/' + this.id;
+            });
+
+            $('.bm_up').click( function(){
+                window.location.href='/b/bookmark_up/' + this.id;
+            });
+
+            $('.bm_down').click( function(){
+                window.location.href='/b/bookmark_down/' + this.id;
+            });
+
+            $('.bm_random').click( function(){
+                window.location.href='/b/random_glyphicon/' + this.id;
+            });
+
+            $('.cat_del').dblclick( function(){
+                window.location.href='/b/delete_category/' + this.id;
+            });
+        });
+
+    </script>
+</html>
